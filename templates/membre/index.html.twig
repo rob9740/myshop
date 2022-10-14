@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Hello AccueilController!{% endblock %}
+
+{% block body %}
+
+    <h1 class="display-5 text-center m-3"> 
+
+     {% if editMode %}
+            Backoffice | Edition du Membre
+        {% else %}
+            Backoffice | Création du Membre
+        {% endif %}
+    </h1>
+
+    <table class="table table-bordered container mt-5">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Pseudo</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">email</th>
+            <th scope="col">civilite</th>
+            {#<th scope="col">statut</th>#}
+            {#<th scope="col">Date Enregistrement</th>#}
+            <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for membre in membres %}
+            <tr>
+            <th scope="row">1</th>
+            <td>{{membre.pseudo}}</td>
+            <td>{{membre.nom}}</td>
+            <td>{{membre.prenom}}</td>
+            <td>{{membre.email}}</td>
+            <td>{{membre.civilite}}</td>
+            {#<td>{{membre.statut}}</td>#}
+            {#<td>{{membre.getDateEnregistrement|date('d/m/Y à H:i:s') }}</td>#}
+            <td><a href="#" class="text-dark" style=" text-decoration:none">
+                <i class='fas fa-search' style='font-size:24px'></i>
+                </a>
+                <a href=" {{ path('membre_edit', {id: membre.id}) }} " class="text-dark" style=" text-decoration:none">
+                <i class='fas fa-edit' style='font-size:24px'></i>
+                </a>
+                <a onclick="return confirm('Voulez-vous supprimer ce véhicule ?')" href="{{ path('membre_delete', {id: membre.id}) }}" class="text-dark" style=" text-decoration:none">
+                <i class='fas fa-trash' style='font-size:24px'></i>
+                </a>
+            </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}

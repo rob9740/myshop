@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<div class="container">
+    <h1 class="display-5 text-center m-3">
+        {% if editMode %}
+            Backoffice | Edition du Membre
+        {% else %}
+            Backoffice | Création du Membre
+        {% endif %}
+    
+    </h1>
+
+
+        {{ form_start(formMembre) }}
+
+        {{ form_row(formMembre.pseudo) }}
+        {{ form_row(formMembre.nom) }}
+        {{ form_row(formMembre.prenom) }}
+        {{ form_row(formMembre.email) }}
+        {{ form_row(formMembre.password) }}
+        {{ form_row(formMembre.civilite) }}
+       
+
+
+        {% if editMode %}
+			Enregistrer les modifications
+		{% else %}
+        <button type="submit" class="btn btn-primary mt-3">Créer le membre</button>
+        
+		{% endif %}
+
+
+        
+        {{ form_end(formMembre) }}
+
+
+    
+        
+
+</div>
+{% endblock %}

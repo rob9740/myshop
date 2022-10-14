@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BackOffice{% endblock %}
+
+{% block body %}
+
+<h1 class="display-4 text-center my-4">BACKOFFICE</h1>
+
+<p class="text-center">Bienvenue sur le BACKOFFICE</p>
+
+<a href="{{ path('commande_create') }}" class="col-md-6 offset-md-3 my-3 btn btn-dark">GESTION DES COMMANDES</a>
+<a href="{{ path('produit_create') }}" class="col-md-6 offset-md-3 my-3 btn btn-dark">GESTION DES PRODUITS</a>
+<a href="{{ path('membre_create') }}" class="col-md-6 offset-md-3 my-3 btn btn-dark">GESTION DES MEMBRES</a>
+
+
+
+{% endblock %}

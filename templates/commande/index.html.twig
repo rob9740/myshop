@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Hello AccueilController!{% endblock %}
+
+{% block body %}
+
+    <h1 class="display-5 text-center m-3"> GESTION DES COMMANDES</h1>
+
+
+    <table class="table table-bordered container mt-5">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            {#<th scope="col">Membre</th>#}
+            {#<th scope="col">Produit</th>#}
+            <th scope="col">Quantite</th>
+            <th scope="col">Montant</th>
+            <th scope="col">Etat</th>
+            {#<th scope="col">Date et Heure Enregistrement</th>#}
+            {#<th scope="col">Actions</th>#}
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+            <th scope="row">1</th>
+            <td>{{commande.quantite}}</td>
+            <td>{{commande.montant}}</td>
+            <td>{{commande.etat}}</td>
+            <td><a href="#" class="text-dark" style=" text-decoration:none">
+                <i class='fas fa-search' style='font-size:24px'></i>
+                </a>
+                <a href=" {{ path('admin_edit_membre', {id: membre.id}) }} " class="text-dark" style=" text-decoration:none">
+                <i class='fas fa-edit' style='font-size:24px'></i>
+                </a>
+                <a onclick="return confirm('Voulez-vous supprimer ce véhicule ?')" href="{{ path('admin_delete_membre', {id: membre.id}) }}" class="text-dark" style=" text-decoration:none">
+                <i class='fas fa-trash' style='font-size:24px'></i>
+                </a>
+            </td>
+            </tr>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}

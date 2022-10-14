@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<div class="container">
+    <h1 class="display-5 text-center m-3">
+        {% if editMode %}
+            Backoffice | Edition du Produit
+        {% else %}
+            Backoffice | Création du produit
+        {% endif %}
+    
+    </h1>
+
+
+        {{ form_start(formProduit) }}
+
+        {{ form_row(formProduit.titre) }}
+        {{ form_row(formProduit.description) }}
+        {{ form_row(formProduit.couleur) }}
+        {{ form_row(formProduit.taille) }}
+        {{ form_row(formProduit.collection) }}
+        {{ form_row(formProduit.photo) }}
+        {{ form_row(formProduit.prix) }}
+        {{ form_row(formProduit.stock) }}
+
+
+        {% if editMode %}
+			Enregistrer les modifications
+		{% else %}
+        <button type="submit" class="btn btn-primary mt-3">Créer le produit</button>
+		{% endif %}
+
+
+        
+        {{ form_end(formProduit) }}
+
+
+    
+        
+
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Hello AccueilController!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <h1 class="display-5 text-center m-3"> GESTION DES PRODUITS</h1>
+
+
+    <table class="table table-bordered container mt-5">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Description</th>
+            <th scope="col">Couleur</th>
+            <th scope="col">Taille</th>
+            <th scope="col">Collection</th>
+            <th scope="col">Photo</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Date Enregistrement</th>
+            <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+            <th scope="row">1</th>
+            <td>{{produit.titre}}</td>
+            <td>{{produit.description}}</td>
+            <td>{{produit.couleur}}</td>
+            <td>{{produit.taille}}</td>
+            <td>{{produit.collection}}</td>
+            <td>{{produit.photo}}</td>
+            <td>{{produit.prix}}</td>
+            <td>{{produit.stock}}</td>
+            {#<td>{{produit.date enregistrement}}</td>#}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+
+{% endblock %}

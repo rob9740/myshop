@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<div class="container">
+    <h1 class="display-5 text-center m-3">
+        {% if editMode %}
+            Backoffice | Edition du Commande
+        {% else %}
+            Backoffice | Création du Commande
+        {% endif %}
+    
+    </h1>
+
+
+        {{ form_start(formCommande) }}
+
+        {{ form_row(formCommande.quantite) }}
+        {{ form_row(formCommande.montant) }}
+        {{ form_row(formCommande.etat) }}
+        
+
+
+        {% if editMode %}
+			Enregistrer les modifications
+		{% else %}
+        <button type="submit" class="btn btn-primary mt-3">Créer le produit</button>
+		{% endif %}
+
+
+        
+        {{ form_end(formCommande) }}
+
+
+    
+        
+
+</div>
+
+
+
+{% endblock %}
